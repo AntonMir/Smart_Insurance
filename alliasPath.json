@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@src/*": ["src"],
+            "@components/*": ["src/components"],
+            "@assets": ["assets"],
+            "@img": ["assets/img"],
+            "@animation": ["assets/animation"],
+            "@store": ["src/store"],
+            "@hooks": ["src/hooks"],
+            "@content": ["src/components/content"],
+            "@footer": ["src/components/footer"],
+            "@header": ["src/components/header"],
+            "@mainPage": ["src/components/mainPage"],
+            "@smartInsurance": ["src/components/mainPage/elements/SmartInsurance"],
+            "@possibilities": ["src/components/mainPage/elements/Possibilities"],
+            "@advantages": ["src/components/mainPage/elements/Advantages"],
+            "@feedbackForm": ["src/components/mainPage/elements/FeedbackForm"],
+            "@mechanism": ["src/components/mainPage/elements/Mechanism"],
+            "@userPage": ["src/components/userPage"],
+            "@tablet": ["src/components/tablet"],
+            "@routes": ["src/routes"],
+            "@config": ["src/config"]
+        }
+    }
+}
