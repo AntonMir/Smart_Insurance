@@ -27,6 +27,15 @@ const Tablet = (props) => {
         }
     })
 
+    useEffect(() => {
+        // preload tablet img
+        allTabletImg.forEach((picture) => {
+            const img = new Image();
+            img.src = picture.default
+            return img
+        })
+    })
+
     // высчитываем высоту документа
     // const body = document.body
     // const html = document.documentElement
@@ -70,10 +79,11 @@ const Tablet = (props) => {
         <TabletStyle>
             {/*отрисуем каждую картинку */}
             {allTabletImg.map((el) => {
-                // если картинка последняя не скрываем ее
+                // если картинка первая не скрываем ее
                 if (scrollPos < 0 && allTabletImg.indexOf(el) === 0) {
                     return <Img src={allTabletImg[0].default} alt="tablet" key={allTabletImg.indexOf(el)} />
                 }
+                // если картинка последняя, также не скрываем ее
                 if (scrollPos > 0 + mechanismHeight && allTabletImg.indexOf(el) === allTabletImg.length - 1) {
                     return (
                         <Img

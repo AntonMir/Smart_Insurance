@@ -22,7 +22,7 @@ export default function Video(props) {
 
     return (
         <VideoStyled ref={videoRef} data-aos='fade-up'>
-            <video controls poster={config.defaultLang === 'RU' ? AVtelmaVideoPosterRU : AVtelmaVideoPosterEN}>
+            <video controls preload="none" poster={config.defaultLang === 'RU' ? AVtelmaVideoPosterRU : AVtelmaVideoPosterEN}>
                 <source src={config.defaultLang === 'RU' ? AVtelmaVideo720RU : AVtelmaVideo720EN} />
             </video>
         </VideoStyled>

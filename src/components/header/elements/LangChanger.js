@@ -1,6 +1,3 @@
-import { useState, useEffect } from 'react'
-// redux
-import { store } from '@store/store.js'
 // config
 import config from '@config/config.js'
 // components
@@ -16,15 +13,9 @@ import styled from 'styled-components'
 const AvaalibleLangList = ['EN', 'RU']
 
 export default function LanguageChanger() {
-    const [currentLang, setCurrentLang] = useState(localStorage.getItem('currentLang') || config.defaultLang)
+    const currentLang = localStorage.getItem('currentLang') || config.defaultLang
     // const [burgerMenuIsOpen, setBurgerMenuIsOpen] = useState(false)
 
-    useEffect(() => {
-        store.subscribe(() => {
-            setCurrentLang(store.getState().pageLanguage)
-            // setBurgerMenuIsOpen(store.getState().burgerMenuIsOpen)
-        })
-    }, [])
 
     return (
         <LangChangeWrapper

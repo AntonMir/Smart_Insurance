@@ -19,7 +19,7 @@ export default function Footer() {
             </NavBarWrapper>
 
             <ContactsWrapper>
-                <Img src={logoGif} alt="logoGif" />
+                <Img src={logoGif} alt="logoGif" loading='lazy' />
                 <UserNavBar />
             </ContactsWrapper>
         </FooterStyled>

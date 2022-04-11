@@ -255,9 +255,11 @@ const InputName = styled.input`
         border: 1px solid #00b0d2 !important;
         box-shadow: none !important;
     }
-
     @media (max-width: 991px) {
         max-width: 84%;
+    }
+    @media (max-width: 450px) {
+        max-width: calc(100% - 41px);
     }
 `
 const InputEmail = styled.input`
@@ -275,9 +277,11 @@ const InputEmail = styled.input`
         border: 1px solid #00b0d2 !important;
         box-shadow: none !important;
     }
-
     @media (max-width: 991px) {
         max-width: 84%;
+    }
+    @media (max-width: 450px) {
+        max-width: calc(100% - 41px);
     }
 `
 
@@ -297,25 +301,23 @@ const Question = styled.textarea`
         box-shadow: none !important;
         outline: none !important;
     }
-
     &::-webkit-input-placeholder {
         font-size: 17px;
     }
-
     &::-moz-placeholder {
         font-size: 17px;
     }
-
     &:-ms-input-placeholder {
         font-size: 17px;
     }
-
     &:-moz-placeholder {
         font-size: 17px;
     }
-
     @media (max-width: 991px) {
         max-width: calc(84% + 40px);
+    }
+    @media (max-width: 450px) {
+        max-width: calc(100%);
     }
 `
 

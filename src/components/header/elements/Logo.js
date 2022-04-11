@@ -1,9 +1,9 @@
 import { useState } from 'react'
-// Link
-import { HashLink } from 'react-router-hash-link'
 // img
 import logo from '@img/header/logo.svg'
 import logoBlack from '@img/header/logoBlack.svg'
+// config
+import config from '@config/config.js'
 // redux
 import { store } from '@store/store.js'
 // styles
@@ -11,6 +11,8 @@ import styled from 'styled-components'
 
 export default function Logo() {
     const [burgerMenuIsOpen, setBurgerMenuIsOpen] = useState(false)
+    const currentLang = localStorage.getItem('currentLang') || config.defaultLang
+
 
     store.subscribe(() => {
         setTimeout(() => {
@@ -19,13 +21,13 @@ export default function Logo() {
     })
 
     return (
-        <CustomLink to="#top" smooth>
+        <CustomLink href={currentLang === 'RU' ? 'https://avtelma.ru/' : 'https://avtelma.com/'} >
             <IMG src={burgerMenuIsOpen ? logoBlack : logo} alt="logo" />
         </CustomLink>
     )
 }
 
-const CustomLink = styled(HashLink)`
+const CustomLink = styled.a`
     flex: 0;
     display: flex;
     align-items: center;

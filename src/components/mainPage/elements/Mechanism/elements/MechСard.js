@@ -7,7 +7,7 @@ export default function MechСard(props) {
 
     return (
         <Mech>
-            <Img src={el.img} alt="mechEl" />
+            <Img src={el.img} alt="mechEl" loading='lazy' />
             <TextWrapper>
                 <H1>{el.title}</H1>
                 <P>{el.text}</P>

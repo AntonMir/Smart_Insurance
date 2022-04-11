@@ -8,7 +8,7 @@ import styled from 'styled-components'
 export default function Logo() {
     return (
         <LogoStyled to="#top" smooth>
-            <Img src={logo} alt="logo" />
+            <Img src={logo} alt="logo" loading='lazy' />
         </LogoStyled>
     )
 }

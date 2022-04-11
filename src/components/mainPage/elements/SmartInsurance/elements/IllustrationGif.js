@@ -15,6 +15,7 @@ import styled from 'styled-components'
 export default function Illustration() {
     const [currentLang, setCurrentLang] = useState(localStorage.getItem('currentLang') || config.defaultLang)
     const [loadedGif, setLoadedGif] = useState(false);
+    const [loadedPH, setLoadedPH] = useState(false);
     const [loadedEl, setLoadedEl] = useState(false);
 
     const showEL = {
@@ -24,6 +25,10 @@ export default function Illustration() {
 
     function onLoadGif() {
         setLoadedGif(true);
+    }
+
+    function onLoadPH() {
+        setLoadedPH(true);
     }
 
     function onLoadEL() {
@@ -40,7 +45,6 @@ export default function Illustration() {
 
     return (
         <IllustrationStyled
-            // onLoad={onLoadEL}
             style={loadedEl ? showEL : {}}
         >
             <Img
@@ -49,10 +53,19 @@ export default function Illustration() {
                 src={currentLang === 'RU' ? illustrateGifRU : illustrateGifEN}
                 alt="illustrate"
             />
-            {!loadedGif && <Img src={currentLang === 'RU' ? illustrateRU : illustrateEN} alt="illustrate" />}
+            {!loadedGif &&
+                <Img
+                    onLoad={onLoadPH}
+                    src={currentLang === 'RU' ? illustrateRU : illustrateEN}
+                    alt="illustrate"
+                />
+            }
             <Tablet
+                style={{ bottom: loadedPH || loadedGif ? '-18%' : '-80%' }}
                 src={tablet}
                 alt="tablet"
+                loadedGif={loadedGif}
+                loadedPH={loadedPH}
             />
         </IllustrationStyled>
     )
@@ -68,22 +81,40 @@ const IllustrationStyled = styled.div`
     transform: translateX(1100px);
     opacity: 0;
     margin-bottom: 11%;
+    min-height: 400px;
+
+    @media (max-width: 1599px) {
+        min-height: 330px;
+    }
+
+    @media (max-width: 1200px) {
+        min-height: 230px;
+    }
 
     @media (max-width: 991px) {
         margin-bottom: 20%;
+        min-height: 200px;
     }
+
+    @media (max-width: 800px) {
+        min-height: none;
+    }
+
 `
 
 const Img = styled.img`
     width: 100%;
     height: auto;
+
+    @media (max-width: 991px) {
+        height: 100%;
+        margin: auto 0;
+    }
 `
 
 const Tablet = styled.img`
     position: absolute;
-    top: 27%;
-    left: 1%;
-    width: 50%;
+    left: 7%;
+    width: 35%;
     height: auto;
-    // background-color: red;
 `

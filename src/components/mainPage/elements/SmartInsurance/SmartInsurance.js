@@ -35,10 +35,12 @@ const SmartInsuranceStyled = styled.div`
         max-width: 1140px;
         padding-top: 50px;
         margin: -30px auto -50px;
+        min-height: 700px;
     }
 
     @media (max-width: 1200px) {
         max-width: 960px;
+        min-height: 500px;
         padding: 60px 2% 0;
     }
 
@@ -47,9 +49,11 @@ const SmartInsuranceStyled = styled.div`
         flex-direction: column;
         overflow: hidden;
         margin: -30px auto -30px;
+        min-height: 500px;
     }
 
     @media (max-width: 800px) {
         padding: 60px 8% 0;
+        min-height: 0;
     }
 `

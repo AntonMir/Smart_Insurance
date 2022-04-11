@@ -24,7 +24,7 @@ export default function MainPage() {
         Aos.init({
             duration: 1000,
             offset: 300,
-            delay: 50,
+            delay: 0,
             once: true,
         });
     }, [])
