@@ -218,10 +218,10 @@ export default function Possibilities(props) {
                     enableAutoPlay={autoPlay}
                     autoPlaySpeed={carouselSpeed}
                 >
-                    <Img src={currentLang === 'RU' ? Screen1RU : Screen1EN} alt="screen" loading='lazy' />
-                    <Img src={currentLang === 'RU' ? Screen2RU : Screen2EN} alt="screen" loading='lazy' />
-                    <Img src={currentLang === 'RU' ? Screen3RU : Screen3EN} alt="screen" loading='lazy' />
-                    <Img src={currentLang === 'RU' ? Screen4RU : Screen4EN} alt="screen" loading='lazy' />
+                    <Img src={currentLang === 'RU' ? Screen1RU : Screen1EN} alt="screen" />
+                    <Img src={currentLang === 'RU' ? Screen2RU : Screen2EN} alt="screen" />
+                    <Img src={currentLang === 'RU' ? Screen3RU : Screen3EN} alt="screen" />
+                    <Img src={currentLang === 'RU' ? Screen4RU : Screen4EN} alt="screen" />
                 </IPhone>
             </IPhoneWrapper>
 
@@ -260,8 +260,8 @@ const PossibilitiesStyled = styled.div`
 
     @media (max-width: 600px) {
         padding: 0 8% 650px 8%;
-        margin-top: 35px;
     }
+
 `
 
 const TextStyled = styled.div`

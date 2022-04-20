@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 // components
 import MainPage from '@mainPage/MainPage.js'
+import PrivacyPolicy from '@privacyPolicy/PrivacyPolicy.js'
+import Cookies from '@cookies/Cookies.js'
 import Header from '@header/Header.js'
 import Footer from '@footer/Footer.js'
 // config
@@ -42,8 +44,10 @@ export default function App() {
         <Router>
             <Header />
             <Route exact path="/" component={MainPage} />
+            <Route exact path="/privacy-policy" component={PrivacyPolicy} />
             <Redirect to="/" />
             <Footer />
+            <Cookies />
         </Router>
     )
 }

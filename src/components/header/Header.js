@@ -10,6 +10,8 @@ import BurgerBtn from '@header/elements/BurgerBtn.js'
 import { store } from '@store/store.js'
 // img
 import wave from '@img/header/wave.svg'
+// config
+import config from '@config/config.js'
 // styles
 import styled from 'styled-components'
 
@@ -48,11 +50,15 @@ export default function Header() {
 
     return (
         <HeaderStyled style={loadedEl ? showEL : {}}>
+            {/* <HeaderStyled> */}
             <HeaderElWrapper>
                 <Logo />
-                <HeaderPopUpWrapper style={burgerMenuIsOpen ? visible : {}}>
+                <HeaderPopUpWrapper
+                    style={burgerMenuIsOpen ? visible : {}}
+                    lang={config.defaultLang}
+                >
                     <Nav />
-                    <LanguageChanger />
+                    {config.defaultLang === 'RU' && <LanguageChanger />}
                     {/* <SignIn /> */}
                     {/* <RequestDemo /> */}
                     {/* <Search /> */}
@@ -102,9 +108,8 @@ const HeaderElWrapper = styled.div`
 const HeaderPopUpWrapper = styled.div`
     display: flex;
     align-items: center;
-    // justify-content: flex-end;
     justify-content: space-around;
-    flex: 1;
+    flex: ${(props) => `${props.lang === 'EN' ? 0 : 1}`};
     height: 100%;
     transition: height 0.3s ease-out, opacity 0.5s ease-out;
 

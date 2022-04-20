@@ -21,19 +21,19 @@ export default function MainNavBar() {
     if (currentLang === 'RU') {
         return (
             <MainNavBarStyled>
-                <ContactEl to="#top" smooth>
+                <ContactEl to="/#top" smooth>
                     Умное страхование
                 </ContactEl>
-                <ContactEl to="#possibilities" smooth>
+                <ContactEl to="/#possibilities" smooth>
                     Возможности
                 </ContactEl>
-                <ContactEl to="#mechanism" smooth>
+                <ContactEl to="/#mechanism" smooth>
                     Устройство
                 </ContactEl>
-                <ContactEl to="#advantages" smooth>
+                <ContactEl to="/#advantages" smooth>
                     Преимущества
                 </ContactEl>
-                <ContactEl to="#FeedbackForm" smooth>
+                <ContactEl to="/#FeedbackForm" smooth>
                     Обратная связь
                 </ContactEl>
             </MainNavBarStyled>
@@ -44,19 +44,19 @@ export default function MainNavBar() {
     if (currentLang === 'EN') {
         return (
             <MainNavBarStyled>
-                <ContactEl to="#top" smooth>
+                <ContactEl to="/#top" smooth>
                     Smart Insurance
                 </ContactEl>
-                <ContactEl to="#possibilities" smooth>
+                <ContactEl to="/#possibilities" smooth>
                     Our Capabilities
                 </ContactEl>
-                <ContactEl to="#mechanism" smooth>
+                <ContactEl to="/#mechanism" smooth>
                     Our Device
                 </ContactEl>
-                <ContactEl to="#advantages" smooth>
+                <ContactEl to="/#advantages" smooth>
                     Our Advantages
                 </ContactEl>
-                <ContactEl to="#FeedbackForm" smooth>
+                <ContactEl to="/#FeedbackForm" smooth>
                     Contact Us
                 </ContactEl>
             </MainNavBarStyled>

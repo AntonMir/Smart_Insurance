@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 // castom hook
 import { useHttp } from '@hooks/http.hook.js'
 import { useMessage } from '@hooks/message.hook.js'
+// Link
+import { HashLink } from 'react-router-hash-link'
 // config
 import config from '@config/config.js'
 // components
@@ -101,8 +103,8 @@ export default function FeedbackForm() {
 
     return (
         <FeedbackFormBackground
-            data-aos='fade-up'
-            data-aos-anchor-placement="top-center"
+        // data-aos='fade-up'
+        // data-aos-anchor-placement="top-center"
         >
             <FeedbackFormStyled>
                 <Text />
@@ -136,11 +138,16 @@ export default function FeedbackForm() {
                     <Button onClick={sendQuestion} disabled={prohibitionSending}>
                         {config.defaultLang === 'RU' ? 'Отправить' : 'Send'}
                     </Button>
-                    <p style={{ opacity: `${prohibitionSending ? '1' : '0'}` }}>
+                    <Timer style={{ opacity: `${prohibitionSending ? '1' : '0'}` }}>
                         {config.defaultLang === 'RU'
                             ? `Повторная отправка будет доступна через ${counter} секунд`
                             : `Resubmitting will be available in ${counter} seconds`}
-                    </p>
+                    </Timer>
+                    <Href to="/privacy-policy#top">
+                        {config.defaultLang === 'RU'
+                            ? `Политика конфиденциальности`
+                            : `Privacy policy`}
+                    </Href>
                 </Form>
                 <BlueRectangle />
             </FeedbackFormStyled>
@@ -159,6 +166,7 @@ const FeedbackFormBackground = styled.div`
         padding: 0 0 80px;
     }
 `
+
 const FeedbackFormStyled = styled.div`
     position: relative;
     padding: 0 0 40px;
@@ -262,6 +270,7 @@ const InputName = styled.input`
         max-width: calc(100% - 41px);
     }
 `
+
 const InputEmail = styled.input`
     margin-bottom: 20px !important;
     background-color: #fff !important;
@@ -347,4 +356,14 @@ const Button = styled.button`
         margin: 25px 0 0 0;
         font-size: 15px;
     }
+`
+
+const Timer = styled.p`
+    margin: 20px 0 10px;
+    font-size: calc(0.3vw + 10px);
+`
+
+const Href = styled(HashLink)`
+    margin: 0 0 30px 0;
+    font-size: calc(0.5vw + 14px);
 `

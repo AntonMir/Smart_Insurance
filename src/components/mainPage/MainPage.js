@@ -35,11 +35,11 @@ export default function MainPage() {
 
     return (
         <Main>
-            <span id="smartInsurance"></span>
-            <SmartInsurance collbackHeight={setSmartInsuranceHeight} />
-
             <span id="video"></span>
             <Video collbackHeight={setVideoHeight} />
+
+            <span id="smartInsurance"></span>
+            <SmartInsurance collbackHeight={setSmartInsuranceHeight} />
 
             <span id="possibilities"></span>
             <Possibilities collbackHeight={setPossabilatiesHeight} />
@@ -59,4 +59,11 @@ export default function MainPage() {
 const Main = styled.div`
     margin: 0 auto;
     max-width: 1920px;
+
+    // & > span {
+    //     display: inline-block;
+    //     height: 80px;
+    //     width: 100%;
+    //     background-color: red;         
+    // }
 `

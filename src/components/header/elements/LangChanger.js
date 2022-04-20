@@ -26,7 +26,7 @@ export default function LanguageChanger() {
             <CurrentLangWrapper>
                 {/* <LangImg src={burgerMenuIsOpen ? languageSvg : languageSvgWhite} alt="globus" /> */}
                 {/* <CurrentLang>{currentLang}</CurrentLang> */}
-                <LangLink href={currentLang === 'RU' ? 'https://avtelma.com/' : 'https://avtelma.ru/'}>
+                <LangLink href={currentLang === 'RU' ? 'https://smart-insurance.avtelma.com' : 'https://smart-insurance.avtelma.ru'}>
                     {currentLang === 'RU' ? 'EN' : 'RU'}
                 </LangLink>
                 {/* <ArrowImg src={burgerMenuIsOpen ? arrowDown : arrowDownWhite} alt="arrowDown" /> */}

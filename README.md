@@ -1,6 +1,6 @@
-# [Smart Insurance](https://avtelma.com)
+# [Smart Insurance](https://smart-insurance.avtelma.com)
 
-Made for [Avtelma](https://smart-insurance.avtelma.com)
+Made for [Avtelma](https://avtelma.com)
 ___
 
 ### Available Scripts

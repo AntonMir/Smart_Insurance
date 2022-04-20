@@ -10,12 +10,13 @@ import Tablet from '@mechanism/elements/Tablet.js'
 // anim on scroll
 import 'aos/dist/aos.css'
 // Img
-import Mech1RU from '@img/mainPage/mechanism/Mech1.webp'
-import Mech2RU from '@img/mainPage/mechanism/Mech2.webp'
-import Mech3RU from '@img/mainPage/mechanism/Mech3.webp'
-import Mech4RU from '@img/mainPage/mechanism/Mech4.webp'
+import Mech1 from '@img/mainPage/mechanism/Mech1.webp'
+import Mech2 from '@img/mainPage/mechanism/Mech2.webp'
+import Mech3 from '@img/mainPage/mechanism/Mech3.webp'
+import Mech4RU from '@img/mainPage/mechanism/Mech4RU.webp'
 import Mech4EN from '@img/mainPage/mechanism/Mech4EN.webp'
-import Mech5RU from '@img/mainPage/mechanism/Mech5.webp'
+import Mech5RU from '@img/mainPage/mechanism/Mech5RU.webp'
+import Mech5EN from '@img/mainPage/mechanism/Mech5EN.webp'
 // styled
 import styled from 'styled-components'
 
@@ -24,19 +25,19 @@ const MechListRU = [
         id: 1,
         title: 'Простота и надёжность',
         text: 'Лаконичный дизайн, небольшие габариты и отсутствие лишних элементов',
-        img: Mech1RU,
+        img: Mech1,
     },
     {
         id: 2,
         title: 'Автономная работа',
         text: 'Модуль FLASH памяти, позволяет сохранять поездки даже если телефон водителя недоступен',
-        img: Mech2RU,
+        img: Mech2,
     },
     {
         id: 3,
         title: 'Большой срок службы',
         text: 'До года работы от момента первого включения без подзарядки или замены батарей',
-        img: Mech3RU,
+        img: Mech3,
     },
     {
         id: 4,
@@ -58,19 +59,19 @@ const MechListEN = [
         id: 1,
         title: 'Simplicity and reliability',
         text: 'Laconic and compact design with no unnecessary elements',
-        img: Mech1RU,
+        img: Mech1,
     },
     {
         id: 2,
         title: 'Autonomous operation',
         text: 'FLASH memory storage is capable of saving ride data even when the driver’s phone is unavailable',
-        img: Mech2RU,
+        img: Mech2,
     },
     {
         id: 3,
         title: 'Long lifespan',
         text: 'Up to a year of battery life once the device is turned on  with no need to recharge or replace the battery',
-        img: Mech3RU,
+        img: Mech3,
     },
     {
         id: 4,
@@ -83,7 +84,7 @@ const MechListEN = [
         id: 5,
         title: 'Ease of use',
         text: 'The device is attached to the windshield via the included double sided adhesive tape',
-        img: Mech5RU,
+        img: Mech5EN,
     },
 ]
 

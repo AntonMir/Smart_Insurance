@@ -23,27 +23,27 @@ export default function Nav() {
             <NavStyled>
                 <NavList>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#top" smooth>
+                        <CustomLink to="/#top" smooth>
                             Умное страхование
                         </CustomLink>
                     </NavEl>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#possibilities" smooth>
+                        <CustomLink to="/#possibilities" smooth>
                             Возможности
                         </CustomLink>
                     </NavEl>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#mechanism" smooth>
+                        <CustomLink to="/#mechanism" smooth>
                             Устройство
                         </CustomLink>
                     </NavEl>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#advantages" smooth>
+                        <CustomLink to="/#advantages" smooth>
                             Преимущества
                         </CustomLink>
                     </NavEl>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#FeedbackForm" smooth>
+                        <CustomLink to="/#FeedbackForm" smooth>
                             Обратная связь
                         </CustomLink>
                     </NavEl>
@@ -58,27 +58,27 @@ export default function Nav() {
             <NavStyled>
                 <NavList>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#top" smooth>
+                        <CustomLink to="/#top" smooth>
                             Smart Insurance
                         </CustomLink>
                     </NavEl>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#possibilities" smooth>
+                        <CustomLink to="/#possibilities" smooth>
                             Our Capabilities
                         </CustomLink>
                     </NavEl>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#mechanism" smooth>
+                        <CustomLink to="/#mechanism" smooth>
                             Our Device
                         </CustomLink>
                     </NavEl>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#advantages" smooth>
+                        <CustomLink to="/#advantages" smooth>
                             Our Advantages
                         </CustomLink>
                     </NavEl>
                     <NavEl className="header-nav-el">
-                        <CustomLink to="#FeedbackForm" smooth>
+                        <CustomLink to="/#FeedbackForm" smooth>
                             Contact Us
                         </CustomLink>
                     </NavEl>

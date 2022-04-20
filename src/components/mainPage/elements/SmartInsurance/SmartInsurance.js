@@ -27,7 +27,7 @@ const SmartInsuranceStyled = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: -30px auto -100px;
+    margin: 0 auto -100px;
     max-width: 1440px;
     min-height: 907.30px;
 

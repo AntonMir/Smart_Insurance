@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-// redux
-import { store } from '@store/store.js'
 // config
 import config from '@config/config.js'
 //carousel
@@ -60,6 +58,7 @@ const textEN = [
 ]
 
 export default function Advantages() {
+
     // get carousel
     const carouselRef = useRef(0)
 
@@ -74,127 +73,134 @@ export default function Advantages() {
     const [autoPlay, setAutoPlay] = useState(true)
 
     // save language state
-    const [currentLang, setCurrentLang] = useState(localStorage.getItem('currentLang') || config.defaultLang)
-    const langText = currentLang === 'RU' ? textRU : textEN
+    const langText = config.defaultLang === 'RU' ? textRU : textEN
 
     useEffect(() => {
-        // change Language
-        store.subscribe(() => {
-            setCurrentLang(store.getState().pageLanguage)
-        })
+        return () => {
+            setAutoPlay(false)
+            setSelectedOption(0)
+        }
     }, [])
-
-    return (
-        <AdvantagesStyled
-            data-aos='fade-up'
-            data-aos-anchor-placement="top-center"
-        >
-            <TextStyled>
-                <H1>
-                    {langText[0].title}
-                </H1>
-                <Ul
-                    onMouseEnter={() => {
-                        setAutoPlay(false)
-                    }}
-                    onMouseLeave={() => {
-                        setAutoPlay(true)
-                    }}
-                >
-                    <Li
+    try {
+        return (
+            <AdvantagesStyled
+                data-aos='fade-up'
+                data-aos-anchor-placement="top-center"
+            >
+                <TextStyled>
+                    <H1>
+                        {langText[0].title}
+                    </H1>
+                    <Ul
                         onMouseEnter={() => {
-                            setSelectedOption(0)
-                            carousel.goTo(0)
+                            setAutoPlay(false)
+                        }}
+                        onMouseLeave={() => {
+                            setAutoPlay(true)
                         }}
                     >
-                        <Title>
-                            <H2>
-                                {langText[1].title}
-                                <Border style={selectedOption === 0 ? { opacity: 1 } : {}}></Border>
-                            </H2>
-                        </Title>
-                        <P>{langText[1].text}</P>
-                    </Li>
-
-                    <Li
-                        onMouseEnter={() => {
-                            setSelectedOption(1)
-                            carousel.goTo(1)
-                        }}
-                    >
-                        <Title>
-                            <H2>
-                                {langText[2].title}
-                                <Border style={selectedOption === 1 ? { opacity: 1 } : {}}></Border>
-                            </H2>
-                        </Title>
-                        <P>{langText[2].text}</P>
-                    </Li>
-
-                    <Li
-                        onMouseEnter={() => {
-                            setSelectedOption(2)
-                            carousel.goTo(2)
-                        }}
-                    >
-                        <Title>
-                            <H2>
-                                {langText[3].title}
-                                <Border style={selectedOption === 2 ? { opacity: 1 } : {}}></Border>
-                            </H2>
-                        </Title>
-                        <P>{langText[3].text}</P>
-                    </Li>
-                </Ul>
-            </TextStyled>
-
-            <CarouselWrapper>
-                <CarouselStyle
-                    ref={carouselRef}
-                    onChange={(currentItem, pageIndex) => {
-                        setSelectedOption(pageIndex)
-                        if (pageIndex === 2 && autoPlay) {
-                            setTimeout(() => {
+                        <Li
+                            onMouseEnter={() => {
+                                setSelectedOption(0)
                                 carousel.goTo(0)
-                            }, [carouselSpeed])
-                        }
-                    }}
-                    enableAutoPlay={autoPlay}
-                    autoPlaySpeed={carouselSpeed}
-                >
-                    <Img selectedOption={selectedOption} src={Screen1} alt="screen" loading='lazy' />
-                    <Img selectedOption={selectedOption} src={Screen2} alt="screen" loading='lazy' />
-                    <Img selectedOption={selectedOption} src={Screen3} alt="screen" loading='lazy' />
-                </CarouselStyle>
+                            }}
+                        >
+                            <Title>
+                                <H2>
+                                    {langText[1].title}
+                                    <Border style={selectedOption === 0 ? { opacity: 1 } : {}}></Border>
+                                </H2>
+                            </Title>
+                            <P>{langText[1].text}</P>
+                        </Li>
 
-                <BlueRectangle />
+                        <Li
+                            onMouseEnter={() => {
+                                setSelectedOption(1)
+                                carousel.goTo(1)
+                            }}
+                        >
+                            <Title>
+                                <H2>
+                                    {langText[2].title}
+                                    <Border style={selectedOption === 1 ? { opacity: 1 } : {}}></Border>
+                                </H2>
+                            </Title>
+                            <P>{langText[2].text}</P>
+                        </Li>
 
-                <ButtonsWrapper>
-                    <Btn
-                        onClick={() => {
-                            setSelectedOption(0)
-                            carousel.goTo(0)
+                        <Li
+                            onMouseEnter={() => {
+                                setSelectedOption(2)
+                                carousel.goTo(2)
+                            }}
+                        >
+                            <Title>
+                                <H2>
+                                    {langText[3].title}
+                                    <Border style={selectedOption === 2 ? { opacity: 1 } : {}}></Border>
+                                </H2>
+                            </Title>
+                            <P>{langText[3].text}</P>
+                        </Li>
+                    </Ul>
+                </TextStyled>
+
+                <CarouselWrapper>
+                    <CarouselStyle
+                        ref={carouselRef}
+                        onChange={(currentItem, pageIndex) => {
+                            setSelectedOption(pageIndex)
+                            let goToFirstSlide;
+                            if (pageIndex === 2 && autoPlay) {
+                                goToFirstSlide = setTimeout(() => {
+                                    carousel.goTo(0)
+                                    //  Ошибка утечки памяти из-за carousel.goTo(0) после unmount component
+                                }, [carouselSpeed])
+                            } else {
+                                clearTimeout(goToFirstSlide)
+                            }
                         }}
-                        style={selectedOption === 0 ? { background: '#FF8764' } : {}}
-                    ></Btn>
-                    <Btn
-                        onClick={() => {
-                            setSelectedOption(1)
-                            carousel.goTo(1)
-                        }}
-                        style={selectedOption === 1 ? { background: '#FF8764' } : {}}
-                    ></Btn>
-                    <Btn
-                        onClick={() => {
-                            setSelectedOption(2)
-                            carousel.goTo(2)
-                        }}
-                        style={selectedOption === 2 ? { background: '#FF8764' } : {}}
-                    ></Btn>
-                </ButtonsWrapper>
-            </CarouselWrapper>
-        </AdvantagesStyled>
-    )
+                        enableAutoPlay={autoPlay}
+                        autoPlaySpeed={carouselSpeed}
+                    >
+                        <Img selectedOption={selectedOption} src={Screen1} alt="screen" loading='lazy' />
+                        <Img selectedOption={selectedOption} src={Screen2} alt="screen" loading='lazy' />
+                        <Img selectedOption={selectedOption} src={Screen3} alt="screen" loading='lazy' />
+                    </CarouselStyle>
+
+                    <BlueRectangle />
+
+                    <ButtonsWrapper>
+                        <Btn
+                            onClick={() => {
+                                setSelectedOption(0)
+                                carousel.goTo(0)
+                            }}
+                            style={selectedOption === 0 ? { background: '#FF8764' } : {}}
+                        ></Btn>
+                        <Btn
+                            onClick={() => {
+                                setSelectedOption(1)
+                                carousel.goTo(1)
+                            }}
+                            style={selectedOption === 1 ? { background: '#FF8764' } : {}}
+                        ></Btn>
+                        <Btn
+                            onClick={() => {
+                                setSelectedOption(2)
+                                carousel.goTo(2)
+                            }}
+                            style={selectedOption === 2 ? { background: '#FF8764' } : {}}
+                        ></Btn>
+                    </ButtonsWrapper>
+                </CarouselWrapper>
+            </AdvantagesStyled >
+        )
+    } catch (error) {
+        console.log('---', 'Error', error.message);
+    }
+
 }
 
 const AdvantagesStyled = styled.div`
