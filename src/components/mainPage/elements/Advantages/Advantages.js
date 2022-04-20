@@ -164,9 +164,9 @@ export default function Advantages() {
                         enableAutoPlay={autoPlay}
                         autoPlaySpeed={carouselSpeed}
                     >
-                        <Img selectedOption={selectedOption} src={Screen1} alt="screen" loading='lazy' />
-                        <Img selectedOption={selectedOption} src={Screen2} alt="screen" loading='lazy' />
-                        <Img selectedOption={selectedOption} src={Screen3} alt="screen" loading='lazy' />
+                        <Img selectedOption={selectedOption} src={Screen1} alt="screen" loading='eager' />
+                        <Img selectedOption={selectedOption} src={Screen2} alt="screen" loading='eager' />
+                        <Img selectedOption={selectedOption} src={Screen3} alt="screen" loading='eager' />
                     </CarouselStyle>
 
                     <BlueRectangle />
