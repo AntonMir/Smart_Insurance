@@ -63,7 +63,7 @@ const CookiesStyled = styled.div`
     left: 40px;
     padding: 20px;
     max-width: 400px;
-    background-color: rgba(0,146,168, 0.5);
+    background-color: rgba(0,146,168, 0.8);
     color: #eee;
     z-index: 9999;
     border-radius: 10px;
@@ -82,6 +82,7 @@ const CookiesStyled = styled.div`
         top: auto;
         bottom: 0;
         border-radius: 0;
+        background-color: rgba(0,146,168, 0.9);
         transform: translateY(100px);
     }
 `
