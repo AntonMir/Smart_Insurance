@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 // castom hook
 import { useHttp } from '@hooks/http.hook.js'
 import { useMessage } from '@hooks/message.hook.js'
-// Link
-import { HashLink } from 'react-router-hash-link'
 // config
 import config from '@config/config.js'
 // components
@@ -143,11 +141,16 @@ export default function FeedbackForm() {
                             ? `Повторная отправка будет доступна через ${counter} секунд`
                             : `Resubmitting will be available in ${counter} seconds`}
                     </Timer>
-                    <Href to="/privacy-policy#top">
+                    <PrivacyPolicyLink
+                        href={config.defaultLang === 'EN'
+                            ? "https://avtelma.com/privacy-policy#top"
+                            : "https://avtelma.ru/privacy-policy#top"
+                        }
+                    >
                         {config.defaultLang === 'RU'
                             ? `Политика конфиденциальности`
                             : `Privacy policy`}
-                    </Href>
+                    </PrivacyPolicyLink>
                 </Form>
                 <BlueRectangle />
             </FeedbackFormStyled>
@@ -363,7 +366,7 @@ const Timer = styled.p`
     font-size: calc(0.3vw + 10px);
 `
 
-const Href = styled(HashLink)`
+const PrivacyPolicyLink = styled.a`
     margin: 0 0 30px 0;
     font-size: calc(0.5vw + 14px);
 `

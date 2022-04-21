@@ -1,5 +1,3 @@
-// Link
-import { HashLink } from 'react-router-hash-link'
 // config
 import config from '@config/config.js'
 // styled
@@ -17,7 +15,16 @@ export default function Contacts() {
             <ContactEl>{contactsList[0]}</ContactEl>
             <ContactEl>{contactsList[1]}</ContactEl>
             <ContactEl><a href="tel:+37491592324">{contactsList[2]}</a></ContactEl>
-            <ContactEl><HashLink to="/privacy-policy#top">{contactsList[3]}</HashLink></ContactEl>
+            <ContactEl>
+                <a
+                    href={config.defaultLang === 'EN'
+                        ? "https://avtelma.com/privacy-policy#top"
+                        : "https://avtelma.ru/privacy-policy#top"
+                    }
+                >
+                    {contactsList[3]}
+                </a>
+            </ContactEl>
         </ContactsStyled>
     )
 }

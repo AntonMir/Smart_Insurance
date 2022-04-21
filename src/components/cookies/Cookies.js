@@ -1,8 +1,6 @@
 import { useState } from 'react'
 // config
 import config from '@config/config.js'
-// Link
-import { HashLink } from 'react-router-hash-link'
 // styled
 import styled from 'styled-components'
 
@@ -41,12 +39,18 @@ export default function Cookies() {
                         : 'Принять'
                     }
                 </Btn>
-                <CustomLink onClick={cookiesСonsentHandler} to="/privacy-policy#top">
+                <Link
+                    onClick={cookiesСonsentHandler}
+                    href={config.defaultLang === 'EN'
+                        ? "https://avtelma.com/privacy-policy#top"
+                        : "https://avtelma.ru/privacy-policy#top"
+                    }
+                >
                     {config.defaultLang === 'EN'
                         ? `Privacy Policy`
                         : `Политика конфиденциальности`
                     }
-                </CustomLink>
+                </Link>
             </BtnBlock>
         </CookiesStyled>
     )
@@ -125,7 +129,7 @@ const Btn = styled.button`
     }
 `
 
-const CustomLink = styled(HashLink)`
+const Link = styled.a`
     color: #eee;
     border: none;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
